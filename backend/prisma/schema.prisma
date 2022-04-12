@@ -1,0 +1,24 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Transacoes {
+  ID_TRANSACAO    Int @id @default(autoincrement())
+  BANCO_ORIGEM    String @db.VarChar(30)
+  AG_ORIGEM       String @db.VarChar(5)
+  CT_ORIGEM       String @db.VarChar(10)
+  BANCO_DESTINO   String @db.VarChar(30)
+  AG_DESTINO      String @db.VarChar(5)
+  CT_DESTINO      String @db.VarChar(10)
+  VLR_TRANSACAO   Decimal @db.Decimal(10,2)
+  
+  @@map("transacoes")
+}
