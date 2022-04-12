@@ -19,6 +19,7 @@ model Transacoes {
   AG_DESTINO      String @db.VarChar(5)
   CT_DESTINO      String @db.VarChar(10)
   VLR_TRANSACAO   Decimal @db.Decimal(10,2)
+  DT_TRANSACAO    DateTime @db.DateTime()
   
   @@map("transacoes")
 }
